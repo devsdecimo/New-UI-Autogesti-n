@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Component Library</title>
+  <script src="https://unpkg.com/vue@3"></script> <!-- Cargar Vue 3 desde CDN -->
+  <script src="./dist/vue-component-library.iife.js"></script> <!-- Cargar la librería compilada -->
+  <link rel="stylesheet" href="/dist/style.css">
+  <style>
+    /* Estilos globales o específicos para el uso de los componentes */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Monta aquí los componentes Vue -->
+    <accordion title-color="bg-blue-200">
+      <template #title>
+        Custom Title
+      </template>
+      <template #content>
+        <p>This is custom content inside the accordion component!</p>
+      </template>
+    </accordion>
+  </div>
+
+  <script>
+    // Montar la aplicación Vue
+    const { createApp } = Vue;
+
+    // Crear una instancia de la aplicación
+    const app = createApp({});
+
+    // Registrar los componentes globalmente
+    Object.keys(VueComponentLibrary).forEach(componentName => {
+      app.component(componentName, VueComponentLibrary[componentName]);
+    });
+
+    // Montar la aplicación en el div con id "app"
+    app.mount('#app');
+  </script>
+</body>
+</html>
