@@ -1,0 +1,3 @@
+[submodule "Test/Autogestion.Frontend"]
+	path = Test/Autogestion.Frontend
+	url = https://github.com/devsdecimo/AutgestionUI.git
